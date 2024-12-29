@@ -1,10 +1,16 @@
 "use client";
-import React, { useState } from 'react';
+import { useState } from "react";
 
-const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -16,7 +22,9 @@ const Contact: React.FC = () => {
   return (
     <div className="p-8">
       <h1 className="text-primary text-3xl font-bold">Contact Us</h1>
-      <p className="text-neutral-dark mt-4">Have questions? Reach out to us anytime!</p>
+      <p className="text-neutral-dark mt-4">
+        Have questions? Reach out to us anytime!
+      </p>
       <form onSubmit={handleSubmit} className="mt-6 space-y-4">
         <input
           type="text"
@@ -47,6 +55,4 @@ const Contact: React.FC = () => {
       </form>
     </div>
   );
-};
-
-export default Contact;
+}

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import Image from 'next/image';
-import { useState } from 'react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname(); // Get current route for active link highlighting
@@ -32,12 +32,24 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <NavLink href="/" currentPath={pathname}>Home</NavLink>
-            <NavLink href="/about" currentPath={pathname}>About Us</NavLink>
-            <NavLink href="/process" currentPath={pathname}>Process</NavLink>
-            <NavLink href="/products" currentPath={pathname}>Products</NavLink>
-            <NavLink href="/faqs" currentPath={pathname}>FAQs</NavLink>
-            <NavLink href="/contact" currentPath={pathname}>Contact Us</NavLink>
+            <NavLink href="/" currentPath={pathname}>
+              Home
+            </NavLink>
+            <NavLink href="/about" currentPath={pathname}>
+              About Us
+            </NavLink>
+            <NavLink href="/process" currentPath={pathname}>
+              Process
+            </NavLink>
+            <NavLink href="/products" currentPath={pathname}>
+              Products
+            </NavLink>
+            <NavLink href="/faqs" currentPath={pathname}>
+              FAQs
+            </NavLink>
+            <NavLink href="/contact" currentPath={pathname}>
+              Contact Us
+            </NavLink>
           </div>
 
           {/* Login Button */}
@@ -95,12 +107,24 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-primary">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <NavLink href="/" currentPath={pathname} mobile>Home</NavLink>
-            <NavLink href="/about" currentPath={pathname} mobile>About Us</NavLink>
-            <NavLink href="/process" currentPath={pathname} mobile>Process</NavLink>
-            <NavLink href="/products" currentPath={pathname} mobile>Products</NavLink>
-            <NavLink href="/faqs" currentPath={pathname} mobile>FAQs</NavLink>
-            <NavLink href="/contact" currentPath={pathname} mobile>Contact Us</NavLink>
+            <NavLink href="/" currentPath={pathname} mobile>
+              Home
+            </NavLink>
+            <NavLink href="/about" currentPath={pathname} mobile>
+              About Us
+            </NavLink>
+            <NavLink href="/process" currentPath={pathname} mobile>
+              Process
+            </NavLink>
+            <NavLink href="/products" currentPath={pathname} mobile>
+              Products
+            </NavLink>
+            <NavLink href="/faqs" currentPath={pathname} mobile>
+              FAQs
+            </NavLink>
+            <NavLink href="/contact" currentPath={pathname} mobile>
+              Contact Us
+            </NavLink>
           </div>
           <div className="p-2">
             <Link href="/login">
@@ -130,9 +154,11 @@ const NavLink = ({ href, currentPath, children, mobile }: NavLinkProps) => {
     <Link href={href}>
       <span
         className={`block ${
-          mobile ? 'px-3 py-2 rounded-md text-base' : 'text-lg'
+          mobile ? "px-3 py-2 rounded-md text-base" : "text-lg"
         } ${
-          isActive ? 'text-secondary border-b-2 border-secondary' : 'text-neutral-light'
+          isActive
+            ? "text-secondary border-b-2 border-secondary"
+            : "text-neutral-light"
         } hover:text-secondary`}
       >
         {children}
