@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 const Footer = () => {
   return (
@@ -25,36 +27,24 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold mb-3">Navigation</h4>
           <ul className="space-y-2">
-            <li>
-              <Link href="/" className="hover:text-secondary">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-secondary">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/process" className="hover:text-secondary">
-                Process
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="hover:text-secondary">
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/faqs" className="hover:text-secondary">
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-secondary">
-                Contact Us
-              </Link>
-            </li>
+            {[
+              { name: "Home", href: "/" },
+              { name: "About Us", href: "/about" },
+              { name: "Process", href: "/process" },
+              { name: "Products", href: "/products" },
+              { name: "FAQs", href: "/faqs" },
+              { name: "Contact Us", href: "/contact" },
+            ].map((link) => (
+              <li key={link.href}>
+                <Button
+                  asChild
+                  variant="link"
+                  className="text-neutral-light px-0"
+                >
+                  <Link href={link.href}>{link.name}</Link>
+                </Button>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -77,13 +67,13 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-3">Developed By</h4>
           <p className="text-neutral-light">
             👨‍💻 Developed by{" "}
-            <a
+            <Link
               href="https://linkedin.com/in/askhan963"
               target="_blank"
               className="hover:text-secondary font-medium"
             >
               Awais Khan
-            </a>
+            </Link>
           </p>
           <p className="text-neutral-light mt-2 text-sm">
             © {new Date().getFullYear()} Seafood Store. All rights reserved.
@@ -91,12 +81,13 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Bottom Bar with Separator */}
+      {/* <Separator className="bg-neutral-700" />
       <div className="bg-primary-dark text-center py-2 mt-4">
         <p className="text-sm text-neutral-light">
           © {new Date().getFullYear()} Seafood Store. All Rights Reserved.
         </p>
-      </div>
+      </div> */}
     </footer>
   );
 };
